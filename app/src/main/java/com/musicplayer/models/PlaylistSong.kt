@@ -26,5 +26,6 @@ data class PlaylistSong(
     val id: Long = 0,
     val playlistId: Long,
     val songId: Long,
-    val position: Int = 0
+    val position: Int = 0,
+    val addedAt: Long = System.currentTimeMillis()
 )
