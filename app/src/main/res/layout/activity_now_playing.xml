@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <!-- Background with gradient -->
+    <View
+        android:id="@+id/gradientBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Album Art (Large) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="24dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/albumArt"
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_music_note"
+                    android:scaleType="centerCrop"
+                    app:civ_border_width="4dp"
+                    app:civ_border_color="@color/accent" />
+            </FrameLayout>
+
+            <!-- Song Info (Glass Card) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/glass_card_bg"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/songTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Song Title"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:ellipsize="end"
+                        android:maxLines="2" />
+
+                    <TextView
+                        android:id="@+id/songArtist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Artist Name"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="4dp"
+                        android:ellipsize="end"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:id="@+id/songAlbum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Album Name"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="2dp"
+                        android:ellipsize="end"
+                        android:maxLines="1" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Seekbar (Glass Card) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/glass_card_bg"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <SeekBar
+                        android:id="@+id/seekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="space_between">
+
+                        <TextView
+                            android:id="@+id/currentTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0:00"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/totalTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0:00"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Controls (Glass Card) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/glass_card_bg"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/btnRepeat"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_repeat"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Repeat" />
+
+                    <ImageButton
+                        android:id="@+id/btnPrevious"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_previous"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Previous" />
+
+                    <ImageButton
+                        android:id="@+id/btnPlayPause"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_play"
+                        android:background="@drawable/btn_play_bg"
+                        android:contentDescription="Play/Pause"
+                        android:layout_margin="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnNext"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_next"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Next" />
+
+                    <ImageButton
+                        android:id="@+id/btnShuffle"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_shuffle"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Shuffle" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Additional Controls (Glass Card) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/glass_card_bg"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="space_evenly">
+
+                    <ImageButton
+                        android:id="@+id/btnFavorite"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_favorite_outline"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Favorite" />
+
+                    <ImageButton
+                        android:id="@+id/btnPlaylist"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_playlist"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Playlist" />
+
+                    <ImageButton
+                        android:id="@+id/btnEqualizer"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_equalizer"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Equalizer" />
+
+                    <ImageButton
+                        android:id="@+id/btnShare"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_share"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Share" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

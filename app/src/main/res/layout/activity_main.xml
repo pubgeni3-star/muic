@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/primary"
+        android:elevation="4dp" />
+
+    <!-- ViewPager2 with Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/primary"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/accent"
+        app:tabIndicatorColor="@color/accent"
+        app:tabGravity="fill" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Mini Player (Glass Morphism) -->
+    <FrameLayout
+        android:id="@+id/miniPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/glass_bg"
+        android:elevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <!-- Album Art -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/miniPlayerAlbumArt"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_music_note"
+                android:scaleType="centerCrop"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/accent" />
+
+            <!-- Song Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/miniPlayerTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No Song"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:id="@+id/miniPlayerArtist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unknown Artist"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:ellipsize="end"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <!-- Controls -->
+            <ImageButton
+                android:id="@+id/miniPlayerPlayPause"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_play"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Play/Pause" />
+
+            <ImageButton
+                android:id="@+id/miniPlayerNext"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_next"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Next" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
